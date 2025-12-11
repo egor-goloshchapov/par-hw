@@ -1,7 +1,6 @@
 {
   "name": "par-hw",
   "version": "1.0.0",
-  "description": "",
   "homepage": "https://egor-goloshchapov.github.io/par-hw/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
