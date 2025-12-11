@@ -714,8 +714,159 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"fILKw":[function(require,module,exports,__globalThis) {
-console.log("Hello!");
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _chart = require("./js/chart");
+var _chartDefault = parcelHelpers.interopDefault(_chart);
+var _game = require("./js/game");
+var _gameDefault = parcelHelpers.interopDefault(_game);
+(0, _chartDefault.default)();
+(0, _gameDefault.default)();
 
-},{}]},["iUuJv","fILKw"], "fILKw", "parcelRequire9462", {})
+},{"./js/chart":"hCAGV","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./js/game":"gnxQg"}],"hCAGV":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>createChart);
+function createChart() {
+    const chartData = {
+        labels: [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30"
+        ],
+        datasets: [
+            {
+                label: "\u041F\u0440\u043E\u0434\u0430\u0436\u0456 \u0437\u0430 \u043E\u0441\u0442\u0430\u043D\u043D\u0456\u0439 \u043C\u0456\u0441\u044F\u0446\u044C",
+                data: [
+                    150,
+                    220,
+                    180,
+                    200,
+                    250,
+                    300,
+                    280,
+                    350,
+                    400,
+                    380,
+                    420,
+                    450,
+                    500,
+                    550,
+                    600,
+                    650,
+                    700,
+                    750,
+                    800,
+                    850,
+                    900,
+                    950,
+                    1000,
+                    1050,
+                    1100,
+                    1150,
+                    1200,
+                    1250,
+                    1300,
+                    1350
+                ],
+                backgroundColor: "#2196f3",
+                borderColor: "#2196f3",
+                borderWidth: 1
+            }
+        ]
+    };
+    new Chart(document.getElementById("sales-chart"), {
+        type: "line",
+        data: chartData
+    });
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"gnxQg":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>createGame);
+function createGame() {
+    const keys = [
+        "a",
+        "s",
+        "d",
+        "f"
+    ];
+    let currentIndex = 0;
+    const keySpan = document.getElementById("key");
+    const newGameBtn = document.getElementById("new-game");
+    function newKey() {
+        currentIndex = Math.floor(Math.random() * keys.length);
+        keySpan.textContent = keys[currentIndex];
+        PNotify.success("New game started!");
+    }
+    document.addEventListener("keydown", (event)=>{
+        if (event.key === keys[currentIndex]) {
+            PNotify.success("Correct!");
+            newKey();
+        } else PNotify.error("Wrong key!");
+    });
+    document.addEventListener("keypress", (event)=>event.preventDefault());
+    newGameBtn.addEventListener("click", newKey);
+    newKey();
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["iUuJv","fILKw"], "fILKw", "parcelRequire9462", {})
 
 //# sourceMappingURL=par-hw.1fcc916e.js.map
