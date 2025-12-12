@@ -8,21 +8,9 @@ export default function createGame() {
   function newKey() {
     currentIndex = Math.floor(Math.random() * keys.length);
     keySpan.textContent = keys[currentIndex];
-    PNotify.success("New game started!");
   }
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === keys[currentIndex]) {
-      PNotify.success("Correct!");
-      newKey();
-    } else {
-      PNotify.error("Wrong key!");
-    }
-  });
 
   document.addEventListener("keypress", (event) => event.preventDefault());
 
   newGameBtn.addEventListener("click", newKey);
-
-  newKey();
 }
